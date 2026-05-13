@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Descubra ofertas especiais de cafés e bebidas perto de você. Promoções ativas para sua rotina." />
+  <meta name="theme-color" content="#000000" />
+  <title>Aromap - Início</title>
+  <link rel="stylesheet" href="/static/css/home.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <div class="page-paper">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <img src="/static/img/logo-aromap.png" alt="Aromap" class="brand-logo" />
+        </div>
+
+        <nav class="topnav">
+          <a href="/home" class="active">Início</a>
+          <a href="/ofertas">Ofertas</a>
+          <a href="/perfil">Meu perfil</a>
+
+          <button class="notif-btn" aria-label="Notificações">
+            <span class="notif-icon">🔔</span>
+            <span class="notif-badge">1</span>
+          </button>
+        </nav>
+      </header>
+
+      <main class="content">
+        <section class="hero-copy" role="banner">
+          <p class="welcome-greeting">Olá, <span id="userName" aria-live="polite">...</span></p>
+          <h1>Descubra ofertas perto de você</h1>
+          <p>Promoções ativas para a sua rotina, no momento certo.</p>
+        </section>
+
+        <section class="hero-banner" id="heroBanner">
+          <!-- preenchido dinamicamente por home.js -->
+        </section>
+
+        <section class="offers-section" id="offersSection" aria-labelledby="offersTitle">
+          <div class="section-title-row">
+            <h3 id="offersTitle">Ativas agora</h3>
+            <div class="section-line" aria-hidden="true"></div>
+          </div>
+
+          <div class="offers-grid" id="offersGrid" role="list">
+            <!-- preenchido dinamicamente por home.js -->
+          </div>
+        </section>
+      </main>
+
+      <footer class="page-footer" role="contentinfo">
+        <div class="footer-line" aria-hidden="true"></div>
+        <img src="/static/img/logo-aromap.png" alt="Aromap" class="footer-logo" />
+        <a href="/perfil" class="preferences-link" title="Acesse suas preferências de ofertas">Editar preferências</a>
+      </footer>
+    </div>
+  </div>
+  <script src="/static/js/home.js?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gerencie todas as campanhas promocionais do Aromap." />
+  <meta name="theme-color" content="#000000" />
+  <title>Aromap - Campanhas</title>
+  <link rel="stylesheet" href="/static/css/admin-campanhas.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <div class="page-paper">
+
+      <header class="topbar">
+        <div class="brand-wrap">
+          <img src="/static/img/logo-aromap.png" alt="Aromap" class="brand-logo" />
+        </div>
+        <nav class="topnav">
+          <a href="/admin">Home</a>
+          <a href="/admin/campanhas" class="active">Campanhas</a>
+          <a href="/admin/relatorios">Relatórios</a>
+          <a href="/login">Sair</a>
+        </nav>
+      </header>
+
+      <main class="admin-main" role="main">
+
+        <section class="page-header">
+          <div class="page-header-left">
+            <h1 id="mainTitle">Campanhas</h1>
+            <p>Gerencie todas as campanhas promocionais</p>
+          </div>
+          <a href="/admin/nova-campanha" class="btn-primary" title="Criar nova campanha">+ Nova Campanha</a>
+        </section>
+
+        <div class="page-divider" aria-hidden="true"></div>
+
+        <section class="filter-section">
+          <div class="filter-bar" role="group" aria-label="Filtros de campanhas">
+            <button class="filter-chip active" data-filter="all" aria-pressed="true" title="Mostrar todas as campanhas">Todas</button>
+            <button class="filter-chip" data-filter="ativa" aria-pressed="false" title="Mostrar campanhas ativas">Ativas</button>
+            <button class="filter-chip" data-filter="agendada" aria-pressed="false" title="Mostrar campanhas agendadas">Agendadas</button>
+            <button class="filter-chip" data-filter="encerrada" aria-pressed="false" title="Mostrar campanhas encerradas">Encerradas</button>
+          </div>
+        </section>
+
+        <section class="campaigns-grid" id="campaignsGrid" role="list" aria-labelledby="mainTitle">
+          <!-- preenchido dinamicamente por admin-campanhas.js -->
+        </section>
+
+        <p class="no-results" id="noResults" style="display:none;" role="status">
+          Nenhuma campanha encontrada para este filtro.
+        </p>
+
+      </main>
+
+      <footer class="page-footer" role="contentinfo">
+        <div class="footer-line" aria-hidden="true"></div>
+        <img src="/static/img/logo-aromap.png" alt="Aromap" class="footer-logo" />
+      </footer>
+    </div>
+  </div>
+
+  <script src="/static/js/admin-campanhas.js"></script>
+</body>
+</html>

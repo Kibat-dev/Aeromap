@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Detalhes completos da campanha e métricas de desempenho." />
+  <meta name="theme-color" content="#000000" />
+  <title>Aromap - Detalhe da Campanha</title>
+  <link rel="stylesheet" href="/static/css/admin-campanha-detalhe.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <div class="page-paper">
+
+      <header class="topbar">
+        <div class="brand-wrap">
+          <img src="/static/img/logo-aromap.png" alt="Aromap" class="brand-logo" />
+        </div>
+        <nav class="topnav">
+          <a href="/admin">Home</a>
+          <a href="/admin/campanhas" class="active">Campanhas</a>
+          <a href="/admin/relatorios">Relatórios</a>
+          <a href="/login">Sair</a>
+        </nav>
+      </header>
+
+      <main class="admin-main" role="main">
+
+        <!-- Breadcrumb + ações -->
+        <div class="toolbar">
+          <a href="/admin/campanhas" class="breadcrumb-back" title="Voltar para campanhas">← Campanhas</a>
+          <div class="toolbar-actions">
+            <button id="btnNotificar" class="btn-notif" style="display:none" title="Enviar notificação para clientes">Enviar notificação</button>
+            <button id="btnEncerrar" class="btn-danger" title="Encerrar esta campanha">Encerrar campanha</button>
+          </div>
+        </div>
+
+        <!-- Hero da campanha -->
+        <section class="hero-section" role="banner">
+          <div class="hero-image-wrap">
+            <img id="heroImage" src="/static/img/logo-aromap.png" alt="Imagem da campanha" class="hero-image" />
+            <div class="hero-overlay">
+              <div class="hero-overlay-top">
+                <span class="hero-badge" id="heroBadge" aria-label="Status da campanha"></span>
+                <h1 id="heroTitle" aria-live="polite">Carregando...</h1>
+                <p class="hero-subtitle" id="heroSubtitle"></p>
+              </div>
+              <img src="/static/img/logo-aromap.png" alt="Aromap" class="hero-mini-logo" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Informações e métricas -->
+        <div class="detail-grid">
+
+          <!-- Detalhes da campanha -->
+          <section class="detail-card">
+            <div class="section-title-row">
+              <h2 id="infoTitle">Informações</h2>
+              <div class="section-line" aria-hidden="true"></div>
+            </div>
+
+            <dl class="info-list" aria-labelledby="infoTitle">
+              <div class="info-row">
+                <dt>Descrição</dt>
+                <dd id="infoDescricao">—</dd>
+              </div>
+              <div class="info-row">
+                <dt>Período</dt>
+                <dd id="infoPeriodo">—</dd>
+              </div>
+              <div class="info-row">
+                <dt>Horário válido</dt>
+                <dd id="infoHorario">—</dd>
+              </div>
+              <div class="info-row">
+                <dt>Unidades</dt>
+                <dd id="infoUnidades">—</dd>
+              </div>
+              <div class="info-row">
+                <dt>Tipo de benefício</dt>
+                <dd id="infoBeneficio">—</dd>
+              </div>
+              <div class="info-row">
+                <dt>Produto alvo</dt>
+                <dd id="infoProduto">—</dd>
+              </div>
+              <div class="info-row">
+                <dt>Notificação</dt>
+                <dd id="infoNotificacao">—</dd>
+              </div>
+            </dl>
+          </section>
+
+          <!-- Notificações -->
+          <section class="detail-card">
+            <div class="section-title-row">
+              <h2 id="notifTitle">Notificações</h2>
+              <div class="section-line" aria-hidden="true"></div>
+            </div>
+            <div id="notifLog" class="notif-log" style="display:none" role="log" aria-label="Log de notificações"></div>
+            <div id="notifStatusWrap" class="ns-wrap" aria-labelledby="notifTitle">
+              <p class="ns-empty" role="status" aria-live="polite">Carregando…</p>
+            </div>
+          </section>
+
+          <!-- Métricas de desempenho -->
+          <section class="detail-card">
+            <div class="section-title-row">
+              <h2 id="perfTitle">Desempenho</h2>
+              <div class="section-line" aria-hidden="true"></div>
+            </div>
+
+            <div class="perf-metrics" role="list" aria-labelledby="perfTitle">
+              <div class="perf-tile" role="listitem">
+                <strong id="perfNotificados" aria-label="Notificações enviadas">—</strong>
+                <span>Notificações enviadas</span>
+              </div>
+              <div class="perf-tile" role="listitem">
+                <strong id="perfResgates" aria-label="Resgates realizados">—</strong>
+                <span>Resgates realizados</span>
+              </div>
+              <div class="perf-tile perf-tile--accent" role="listitem">
+                <strong id="perfTaxa" aria-label="Taxa de resgate">—</strong>
+                <span>Taxa de resgate</span>
+              </div>
+              <div class="perf-tile" role="listitem">
+                <strong id="perfElegiveis" aria-label="Clientes notificados">—</strong>
+                <span>Clientes notificados</span>
+              </div>
+            </div>
+
+            <div class="perf-bar-section">
+              <div class="perf-bar-label">
+                <span>Taxa de conversão</span>
+                <span id="perfBarLabel">—</span>
+              </div>
+              <div class="perf-bar-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="perf-bar-fill" id="perfBarFill" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div class="section-title-row" style="margin-top:32px">
+              <h2 id="redemptionTitle">Histórico de resgates</h2>
+              <div class="section-line" aria-hidden="true"></div>
+            </div>
+
+            <ul class="redemption-list" id="redemptionList" role="list" aria-labelledby="redemptionTitle">
+              <li class="redemption-item redemption-item--more" role="listitem">
+                <span>Nenhum resgate registrado ainda.</span>
+              </li>
+            </ul>
+          </section>
+
+        </div>
+
+      </main>
+
+      <footer class="page-footer" role="contentinfo">
+        <div class="footer-line" aria-hidden="true"></div>
+        <img src="/static/img/logo-aromap.png" alt="Aromap" class="footer-logo" />
+      </footer>
+    </div>
+  </div>
+
+  <script src="/static/js/admin-campanha-detalhe.js"></script>
+</body>
+</html>

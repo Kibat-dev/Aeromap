@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Relatórios detalhados de desempenho das campanhas e engajamento dos clientes." />
+  <meta name="theme-color" content="#000000" />
+  <title>Aromap - Relatórios</title>
+  <link rel="stylesheet" href="/static/css/admin-relatorios.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <div class="page-paper">
+
+      <header class="topbar">
+        <div class="brand-wrap">
+          <img src="/static/img/logo-aromap.png" alt="Aromap" class="brand-logo" />
+        </div>
+        <nav class="topnav">
+          <a href="/admin">Home</a>
+          <a href="/admin/campanhas">Campanhas</a>
+          <a href="/admin/relatorios" class="active">Relatórios</a>
+          <a href="/login">Sair</a>
+        </nav>
+      </header>
+
+      <main class="admin-main" role="main">
+
+        <section class="page-header">
+          <div class="page-header-left">
+            <h1>Relatórios</h1>
+            <p>Desempenho das campanhas e engajamento dos clientes</p>
+          </div>
+          <div class="period-selector" role="group" aria-label="Filtro de período">
+            <button class="period-btn active" data-period="mes" aria-pressed="true" title="Mostrar dados do mês atual">Este mês</button>
+            <button class="period-btn" data-period="3m" aria-pressed="false" title="Mostrar dados dos últimos 3 meses">Últimos 3 meses</button>
+            <button class="period-btn" data-period="ano" aria-pressed="false" title="Mostrar dados do ano">Este ano</button>
+          </div>
+        </section>
+
+        <div class="page-divider" aria-hidden="true"></div>
+
+        <!-- Métricas gerais -->
+        <section class="metrics-row" role="list" aria-label="Métricas gerais">
+          <div class="metric-tile" role="listitem">
+            <strong id="metNotifs" aria-label="Total de clientes notificados">—</strong>
+            <span>Clientes notificados</span>
+          </div>
+          <div class="metric-tile" role="listitem">
+            <strong id="metEnviadas" aria-label="Total de resgates realizados">—</strong>
+            <span>Resgates realizados</span>
+          </div>
+          <div class="metric-tile metric-tile--accent" role="listitem">
+            <strong id="metAtivas" aria-label="Total de campanhas ativas">—</strong>
+            <span>Campanhas ativas</span>
+          </div>
+          <div class="metric-tile" role="listitem">
+            <strong id="metTotal" aria-label="Total geral de campanhas">—</strong>
+            <span>Total de campanhas</span>
+          </div>
+        </section>
+
+        <!-- Desempenho por campanha -->
+        <section class="report-section">
+          <div class="section-title-row">
+            <h2 id="reportTitle">Desempenho por campanha</h2>
+            <div class="section-line" aria-hidden="true"></div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="report-table" role="table" aria-labelledby="reportTitle">
+              <thead>
+                <tr>
+                  <th scope="col">Campanha</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Período</th>
+                  <th scope="col">Notificações</th>
+                  <th scope="col">Resgates</th>
+                  <th scope="col">Taxa</th>
+                  <th scope="col">Barra</th>
+                </tr>
+              </thead>
+              <tbody id="reportTbody">
+                <tr>
+                  <td colspan="7" style="text-align:center;padding:2rem;color:#999" role="status">Carregando...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Engajamento por unidade -->
+        <section class="report-section">
+          <div class="section-title-row">
+            <h2 id="unitsTitle">Engajamento por unidade</h2>
+            <div class="section-line" aria-hidden="true"></div>
+          </div>
+
+          <div class="units-grid" id="unitsGrid" role="list" aria-labelledby="unitsTitle">
+            <!-- preenchido dinamicamente -->
+          </div>
+        </section>
+
+      </main>
+
+      <footer class="page-footer" role="contentinfo">
+        <div class="footer-line" aria-hidden="true"></div>
+        <img src="/static/img/logo-aromap.png" alt="Aromap" class="footer-logo" />
+      </footer>
+    </div>
+  </div>
+
+  <script src="/static/js/admin-relatorios.js?v=2"></script>
+</body>
+</html>

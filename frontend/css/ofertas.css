@@ -1,0 +1,272 @@
+/* =========================================
+   ofertas.css
+   Complementa home.css para a tela de ofertas
+   ========================================= */
+
+/* Seção de filtros */
+.filter-section {
+  margin-bottom: 32px;
+}
+
+.filter-header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #000000;
+}
+
+.filter-header p {
+  margin: 0 0 28px;
+  font-size: 16px;
+  color: #666666;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.filter-chip {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #e0e0e0;
+  background: #ffffff;
+  color: #666666;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.filter-chip:hover {
+  background: #f5f5f5;
+  border-color: #999999;
+}
+
+.filter-chip.active {
+  background: #000000;
+  border-color: #000000;
+  color: #ffffff;
+}
+
+.filter-divider {
+  height: 1px;
+  background: #e0e0e0;
+}
+
+/* Grid de ofertas — layout 2 colunas */
+.offers-grid-full {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  padding-top: 28px;
+}
+
+/* Card de oferta — versão horizontal */
+.offer-card-full {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  background: #ffffff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.18s;
+}
+
+.offer-card-full:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagem lateral */
+.offer-image-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.offer-img-top {
+  object-position: center 18%;
+}
+
+/* Placeholder para campanha futura */
+.offer-image-placeholder {
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: #999999;
+}
+
+.placeholder-icon {
+  font-size: 48px;
+  opacity: 0.5;
+}
+
+/* Badge de status */
+.offer-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.badge-active {
+  background: #4caf50;
+  color: #ffffff;
+}
+
+.badge-scheduled {
+  background: #ffc107;
+  color: #000000;
+}
+
+/* Corpo do card */
+.offer-body {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.offer-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.offer-unit-tag,
+.offer-period-tag {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  color: #999999;
+}
+
+.offer-period-tag {
+  opacity: 0.8;
+}
+
+.offer-body h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  line-height: 1.2;
+}
+
+.offer-desc-full {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #666666;
+  flex: 1;
+}
+
+.offer-time-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.offer-time-muted {
+  opacity: 0.6;
+}
+
+.clock-icon {
+  font-size: 14px;
+}
+
+/* Botão de resgate */
+.offer-btn-full {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 40px;
+  border-radius: 4px;
+  background: #000000;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.offer-btn-full:hover {
+  background: #333333;
+}
+
+.btn-disabled {
+  background: #e0e0e0;
+  color: #999999;
+  cursor: not-allowed;
+}
+
+.btn-redeemed {
+  background: #4caf50 !important;
+  color: #ffffff !important;
+  cursor: default !important;
+}
+
+/* Mensagem de filtro vazio */
+.no-results {
+  text-align: center;
+  padding: 52px 20px;
+  font-size: 18px;
+  color: #999999;
+}
+
+/* Responsivo */
+@media (max-width: 960px) {
+  .offers-grid-full {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .filter-header h1 {
+    font-size: 28px;
+  }
+
+  .filter-chip {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  .offer-card-full {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-image-wrap {
+    height: 180px;
+  }
+
+  .offer-image-placeholder {
+    height: 140px;
+  }
+}

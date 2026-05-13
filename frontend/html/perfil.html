@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gerencie seu perfil, preferências de ofertas e histórico de resgates." />
+  <meta name="theme-color" content="#000000" />
+  <title>Aromap - Meu Perfil</title>
+  <link rel="stylesheet" href="/static/css/home.css" />
+  <link rel="stylesheet" href="/static/css/perfil.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <div class="page-paper">
+
+      <header class="topbar">
+        <div class="brand-wrap">
+          <img src="/static/img/logo-aromap.png" alt="Aromap" class="brand-logo" />
+        </div>
+        <nav class="topnav">
+          <a href="/home">Início</a>
+          <a href="/ofertas">Ofertas</a>
+          <a href="#" class="active">Meu perfil</a>
+          <button class="notif-btn" aria-label="Notificações">
+            <span class="notif-icon">🔔</span>
+            <span class="notif-badge">1</span>
+          </button>
+        </nav>
+      </header>
+
+      <main class="content" role="main">
+
+        <!-- Cabeçalho do perfil -->
+        <section class="profile-header" role="banner">
+          <div class="profile-avatar" aria-label="Avatar do usuário">
+            <span class="avatar-initials" id="avatarInitials" aria-hidden="true">JD</span>
+          </div>
+          <div class="profile-info">
+            <h1 id="profileName">—</h1>
+            <p class="profile-email" id="profileEmail">—</p>
+            <p class="profile-since" id="profileSince" aria-live="polite">Carregando...</p>
+          </div>
+        </section>
+
+        <div class="profile-divider"></div>
+
+        <div class="profile-grid">
+
+          <!-- Coluna esquerda: dados e preferências -->
+          <div class="profile-left">
+
+            <!-- Dados pessoais -->
+            <section class="profile-section">
+              <div class="section-title-row">
+                <h3>Dados pessoais</h3>
+                <div class="section-line"></div>
+              </div>
+
+              <form class="profile-form" id="profileForm" novalidate>
+                <fieldset>
+                  <legend class="sr-only">Editar dados pessoais</legend>
+                  
+                  <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" value="" autocomplete="name" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" value="" disabled aria-describedby="emailHint" />
+                    <small id="emailHint" class="sr-only">E-mail não pode ser alterado</small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" id="phone" name="phone" value="" autocomplete="tel" />
+                  </div>
+                </fieldset>
+
+                <button type="submit" class="btn-save">Salvar alterações</button>
+                <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+              </form>
+            </section>
+
+            <!-- Alterar senha -->
+            <section class="profile-section">
+              <div class="section-title-row">
+                <h3>Alterar senha</h3>
+                <div class="section-line"></div>
+              </div>
+
+              <form class="profile-form" id="passwordForm" novalidate>
+                <fieldset>
+                  <legend class="sr-only">Alterar senha</legend>
+                  
+                  <div class="form-group">
+                    <label for="currentPassword">Senha atual</label>
+                    <input type="password" id="currentPassword" name="currentPassword" placeholder="••••••••" autocomplete="current-password" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="newPassword">Nova senha</label>
+                    <input type="password" id="newPassword" name="newPassword" placeholder="••••••••" autocomplete="new-password" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="confirmNewPassword">Confirmar nova senha</label>
+                    <input type="password" id="confirmNewPassword" name="confirmNewPassword" placeholder="••••••••" autocomplete="new-password" />
+                  </div>
+                </fieldset>
+
+                <button type="submit" class="btn-save">Alterar senha</button>
+                <p class="form-message" id="passwordMessage" role="status" aria-live="polite"></p>
+              </form>
+            </section>
+
+          </div>
+
+          <!-- Coluna direita: preferências de notificação + histórico -->
+          <div class="profile-right">
+
+            <!-- Preferências de notificação -->
+            <section class="profile-section">
+              <div class="section-title-row">
+                <h3>Preferências</h3>
+                <div class="section-line"></div>
+              </div>
+
+              <p class="pref-desc">Escolha quais tipos de oferta você quer receber.</p>
+
+              <div class="pref-list">
+                <label class="pref-toggle">
+                  <span class="pref-label">
+                    <span class="pref-icon">☕</span>
+                    Cafés e bebidas quentes
+                  </span>
+                  <input type="checkbox" id="pref-cafes-quentes" />
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                </label>
+
+                <label class="pref-toggle">
+                  <span class="pref-label">
+                    <span class="pref-icon">🧊</span>
+                    Cafés gelados
+                  </span>
+                  <input type="checkbox" id="pref-cafes-gelados" />
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                </label>
+
+                <label class="pref-toggle">
+                  <span class="pref-label">
+                    <span class="pref-icon">🥐</span>
+                    Pães e salgados
+                  </span>
+                  <input type="checkbox" id="pref-paes-salgados" />
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                </label>
+
+                <label class="pref-toggle">
+                  <span class="pref-label">
+                    <span class="pref-icon">🍪</span>
+                    Doces e sobremesas
+                  </span>
+                  <input type="checkbox" id="pref-doces-sobremesas" />
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                </label>
+
+                <label class="pref-toggle">
+                  <span class="pref-label">
+                    <span class="pref-icon">🔔</span>
+                    Notificações por e-mail
+                  </span>
+                  <input type="checkbox" id="pref-notif-email" />
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                </label>
+              </div>
+
+              <button class="btn-save btn-save-prefs" id="savePrefs">Salvar preferências</button>
+              <p class="form-message" id="prefsMessage"></p>
+            </section>
+
+            <!-- Histórico de resgates -->
+            <section class="profile-section">
+              <div class="section-title-row">
+                <h3>Histórico</h3>
+                <div class="section-line"></div>
+              </div>
+
+              <ul class="history-list" id="historyList">
+                <!-- preenchido dinamicamente por perfil.js -->
+              </ul>
+              <p id="historyEmpty" style="display:none;font-size:16px;color:var(--ink-soft);opacity:0.65;font-family:Arial,sans-serif;">
+                Nenhum benefício resgatado ainda.
+              </p>
+            </section>
+
+          </div>
+        </div>
+
+        <!-- Sair -->
+        <div class="logout-row">
+          <a href="/login" class="btn-logout">Sair da conta</a>
+        </div>
+
+      </main>
+
+      <footer class="page-footer">
+        <div class="footer-line"></div>
+        <img src="/static/img/logo-aromap.png" alt="Aromap" class="footer-logo" />
+        <a href="#" class="preferences-link">Editar preferências</a>
+      </footer>
+    </div>
+  </div>
+
+  <script src="/static/js/perfil.js?v=3"></script>
+</body>
+</html>
